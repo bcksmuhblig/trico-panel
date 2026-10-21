@@ -1,0 +1,13 @@
+# deps & build
+node_modules/
+.wrangler/
+dist/
+
+# rahasia — JANGAN PERNAH commit
+.dev.vars
+.env
+.trico/
+
+# os/sampah
+.DS_Store
+*.log

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRICO — Panel Pemahaman</title>
+<meta name="description" content="Mesin pemahaman dunia pribadi. Tiga lensa, satu paham.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◉</span>
+    <span class="brand-name">TRICO</span>
+    <span class="brand-sub">panel pemahaman · v0.1 fondasi</span>
+  </div>
+  <div class="clock">
+    <span id="clock-wib" class="clock-time">--:--:--</span>
+    <span class="clock-tz">WIB</span>
+    <span id="status-dot" class="dot dot-idle" title="status koneksi state"></span>
+  </div>
+</header>
+
+<main class="bento" id="bento">
+
+  <!-- SEISMIK INDONESIA -->
+  <section class="tile tile-seismik span-5" id="tile-seismik">
+    <header class="tile-head"><h2>SEISMIK · INDONESIA</h2><span class="tile-src">BMKG</span></header>
+    <div class="mag-row">
+      <div class="mag" id="id-mag">—</div>
+      <div class="mag-meta">
+        <div class="badge" id="id-potensi">menunggu data</div>
+        <div class="dim" id="id-kedalaman"></div>
+      </div>
+    </div>
+    <div class="wilayah" id="id-wilayah">—</div>
+    <div class="dim mono" id="id-waktu">—</div>
+  </section>
+
+  <!-- DENYUT GLOBAL -->
+  <section class="tile span-4" id="tile-global">
+    <header class="tile-head"><h2>DENYUT GLOBAL · 24J</h2><span class="tile-src">USGS</span></header>
+    <div class="stat-grid">
+      <div><div class="stat" id="g-count">—</div><div class="dim">kejadian M2.5+</div></div>
+      <div><div class="stat warn" id="g-max">—</div><div class="dim">magnitudo maks</div></div>
+    </div>
+    <ol class="top3" id="g-top3"></ol>
+  </section>
+
+  <!-- KALENDER -->
+  <section class="tile span-3" id="tile-kalender">
+    <header class="tile-head"><h2>KALENDER</h2><span class="tile-src">intl + nager</span></header>
+    <div class="kal-greg" id="kal-greg">—</div>
+    <div class="kal-hijri" id="kal-hijri">—</div>
+    <div class="chips" id="kal-libur"></div>
+  </section>
+
+  <!-- HARI INI DALAM SEJARAH -->
+  <section class="tile span-7" id="tile-sejarah">
+    <header class="tile-head"><h2>HARI INI DALAM SEJARAH</h2><span class="tile-src">wikipedia</span></header>
+    <ol class="sejarah" id="sejarah"></ol>
+  </section>
+
+  <!-- KESEHATAN SUMBER (provenance sebagai estetika) -->
+  <section class="tile span-5" id="tile-sumber">
+    <header class="tile-head"><h2>SUMBER TERBUKA</h2><span class="tile-src">provenance</span></header>
+    <ul class="sources" id="sources"></ul>
+    <div class="snap-row">
+      <div class="dim">snapshot <span class="mono" id="snap-age">—</span></div>
+      <div class="progress"><div class="progress-bar" id="snap-progress"></div></div>
+      <div class="dim">berikutnya <span class="mono" id="snap-next">—</span></div>
+    </div>
+  </section>
+
+  <!-- TRICO STANDBY -->
+  <section class="tile tile-trico span-12" id="tile-trico">
+    <div class="trico-idle">
+      <span class="hairline" aria-hidden="true"></span>
+      <span class="trico-text">trico standby — telinga lokal dipasang di <b>Fase 2</b>. nanti: ucapkan <b>“hey trico”</b>, ia menjawab singkat di sini, tanpa membuka tab apa pun.</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- MODE LAYAR SEMPIT: teks saja (sesuai filosofi: mobile = informasi by teks) -->
+<div class="mobile-only">
+  <pre id="mobile-ringkas">memuat ringkasan…</pre>
+</div>
+
+<footer class="footer">
+  <span>data: BMKG · USGS · Nager.Date · Wikipedia — sumber terbuka, atribusi dipertahankan</span>
+  <span class="mono" id="foot-gen">—</span>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

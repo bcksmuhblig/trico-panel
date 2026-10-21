@@ -1,0 +1,27 @@
+name = "trico-core"
+account_id = "541e5556fb718953b6a46e046dcacdc0"
+main = "src/index.js"
+compatibility_date = "2026-10-21"
+workers_dev = true
+
+# Frontend panel (vanilla, tanpa build step)
+[assets]
+directory = "../web"
+
+# Snapshot World-State (bibit Mesin Waktu)
+# v0 memakai KV: gratis tanpa kartu + TTL otomatis untuk arsip.
+# (R2 dicoba 2026-10-22 -> akun belum mengaktifkan R2 [code 10042]; bisa diaktifkan
+#  manual di dashboard nanti bila arsip jangka panjang dibutuhkan — lihat infra/CHANGELOG)
+[[kv_namespaces]]
+binding = "STATE"
+id = "36f422c019e5420c968c38780dddd745"
+
+# Snapshot tiap 15 menit (freshness tier-1, lihat docs/ADR-001)
+[triggers]
+crons = ["*/15 * * * *"]
+
+# Secrets diset via Dashboard (Variables and Secrets) atau `wrangler secret put`:
+#   ADMIN_KEY            — penjaga POST /api/snapshot/now
+#   GROQ_API_KEY         — (Fase 2) STT + LLM
+#   TIDB_*               — (Fase 1) koneksi database
+#   GOOGLE_GATEWAY_*     — (Fase 1) Apps Script gateway
