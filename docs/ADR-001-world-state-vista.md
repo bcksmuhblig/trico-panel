@@ -1,4 +1,4 @@
-# ADR-001 — World-State Document & Skema Vista
+# ADR-001 · World-State Document & Skema Vista
 
 **Status:** Diterima (Fase 0)
 **Tanggal:** 2026-10-22
@@ -37,9 +37,9 @@ secara langsung (kecuali jalur darurat seismik, lihat §5).
 ### 2. Snapshot berversi (bibit Mesin Waktu)
 
 - Ditulis tiap 15 menit oleh cron worker ke R2:
-  - `state/latest.json` — selalu yang terbaru
-  - `state/{YYYY-MM-DD}/{HH-mm}.json` — arsip per snapshot (UTC)
-  - `state/index.json` — 192 kunci terakhir (±48 jam), rolling
+  - `state/latest.json` · selalu yang terbaru
+  - `state/{YYYY-MM-DD}/{HH-mm}.json` · arsip per snapshot (UTC)
+  - `state/index.json` · 192 kunci terakhir (±48 jam), rolling
 - **Retensi v0:** tidak dihapus. Estimasi ±10–40 KB/snapshot ⇒ ±1–4 MB/hari;
   kuota R2 gratis 10 GB bertahan bertahun-tahun. Kebijakan pemadatan (misal
   simpan 1/jam setelah 7 hari) diputuskan di ADR lanjutan, sebelum kuota jadi isu.

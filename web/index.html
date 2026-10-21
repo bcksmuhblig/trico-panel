@@ -3,94 +3,129 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TRICO — Panel Pemahaman</title>
-<meta name="description" content="Mesin pemahaman dunia pribadi. Tiga lensa, satu paham.">
+<title>TRICO · Panel Pemahaman Dunia</title>
+<meta name="description" content="Panel intelijen pribadi. Sembilan sumber terbuka, satu layar.">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="brand">
-    <span class="brand-mark">◉</span>
-    <span class="brand-name">TRICO</span>
-    <span class="brand-sub">panel pemahaman · v0.1 fondasi</span>
+<header class="atas">
+  <div class="merek">
+    <span class="merek-kotak" aria-hidden="true"></span>
+    <span class="merek-nama">TRICO</span>
+    <span class="merek-sub">panel pemahaman dunia</span>
   </div>
-  <div class="clock">
-    <span id="clock-wib" class="clock-time">--:--:--</span>
-    <span class="clock-tz">WIB</span>
-    <span id="status-dot" class="dot dot-idle" title="status koneksi state"></span>
+  <div class="jam-dunia" id="jam-dunia" aria-label="jam kota dunia"></div>
+  <div class="status">
+    <span class="mono" id="jam-lokal">--:--:--</span>
+    <span class="wz">WIB</span>
+    <span id="dot" class="dot abu" title="status data"></span>
   </div>
 </header>
 
 <main class="bento" id="bento">
 
-  <!-- SEISMIK INDONESIA -->
-  <section class="tile tile-seismik span-5" id="tile-seismik">
-    <header class="tile-head"><h2>SEISMIK · INDONESIA</h2><span class="tile-src">BMKG</span></header>
-    <div class="mag-row">
-      <div class="mag" id="id-mag">—</div>
-      <div class="mag-meta">
-        <div class="badge" id="id-potensi">menunggu data</div>
-        <div class="dim" id="id-kedalaman"></div>
+  <section class="petak p5" id="petak-seismik">
+    <header class="p-atas"><h2>SEISMIK INDONESIA</h2><span class="src">BMKG</span></header>
+    <div class="seis-utama">
+      <div class="seis-mag mono" id="s-mag">--</div>
+      <div class="seis-samping">
+        <span class="lencana" id="s-potensi">menunggu sumber</span>
+        <span class="redup mono" id="s-dalam"></span>
       </div>
     </div>
-    <div class="wilayah" id="id-wilayah">—</div>
-    <div class="dim mono" id="id-waktu">—</div>
+    <div class="seis-wilayah" id="s-wilayah">--</div>
+    <div class="redup mono kecil" id="s-waktu">--</div>
   </section>
 
-  <!-- DENYUT GLOBAL -->
-  <section class="tile span-4" id="tile-global">
-    <header class="tile-head"><h2>DENYUT GLOBAL · 24J</h2><span class="tile-src">USGS</span></header>
-    <div class="stat-grid">
-      <div><div class="stat" id="g-count">—</div><div class="dim">kejadian M2.5+</div></div>
-      <div><div class="stat warn" id="g-max">—</div><div class="dim">magnitudo maks</div></div>
+  <section class="petak p4">
+    <header class="p-atas"><h2>GEMPA DUNIA 24 JAM</h2><span class="src">USGS</span></header>
+    <div class="dua-stat">
+      <div><div class="angka mono" id="g-jumlah">--</div><div class="redup kecil">kejadian di atas M2.5</div></div>
+      <div><div class="angka kuning mono" id="g-maks">--</div><div class="redup kecil">terkuat</div></div>
     </div>
-    <ol class="top3" id="g-top3"></ol>
+    <div class="grafik" id="g-hist"></div>
+    <div class="redup kecil">kejadian per jam, 24 jam terakhir</div>
+    <ol class="top3 mono" id="g-top3"></ol>
   </section>
 
-  <!-- KALENDER -->
-  <section class="tile span-3" id="tile-kalender">
-    <header class="tile-head"><h2>KALENDER</h2><span class="tile-src">intl + nager</span></header>
-    <div class="kal-greg" id="kal-greg">—</div>
-    <div class="kal-hijri" id="kal-hijri">—</div>
-    <div class="chips" id="kal-libur"></div>
+  <section class="petak p3">
+    <header class="p-atas"><h2>KALENDER</h2><span class="src">hitungan + nager</span></header>
+    <div class="kal-greg" id="k-greg">--</div>
+    <div class="kal-hijri mono" id="k-hijri">--</div>
+    <div class="garis"></div>
+    <div class="chips" id="k-libur"></div>
   </section>
 
-  <!-- HARI INI DALAM SEJARAH -->
-  <section class="tile span-7" id="tile-sejarah">
-    <header class="tile-head"><h2>HARI INI DALAM SEJARAH</h2><span class="tile-src">wikipedia</span></header>
-    <ol class="sejarah" id="sejarah"></ol>
+  <section class="petak p4" id="petak-berita">
+    <header class="p-atas"><h2>BERITA UTAMA</h2><span class="src">google berita</span></header>
+    <ol class="berita" id="b-list"><li class="redup">memuat</li></ol>
   </section>
 
-  <!-- KESEHATAN SUMBER (provenance sebagai estetika) -->
-  <section class="tile span-5" id="tile-sumber">
-    <header class="tile-head"><h2>SUMBER TERBUKA</h2><span class="tile-src">provenance</span></header>
-    <ul class="sources" id="sources"></ul>
-    <div class="snap-row">
-      <div class="dim">snapshot <span class="mono" id="snap-age">—</span></div>
-      <div class="progress"><div class="progress-bar" id="snap-progress"></div></div>
-      <div class="dim">berikutnya <span class="mono" id="snap-next">—</span></div>
+  <section class="petak p4">
+    <header class="p-atas"><h2>CUACA JAKARTA</h2><span class="src">open-meteo</span></header>
+    <div class="cuaca-utama">
+      <div class="cuaca-suhu mono" id="c-suhu">--</div>
+      <div class="cuaca-meta">
+        <div id="c-teks">--</div>
+        <div class="redup kecil mono" id="c-detail">--</div>
+      </div>
+    </div>
+    <div class="grafik" id="c-spark"></div>
+    <div class="redup kecil">suhu per jam, hari ini</div>
+  </section>
+
+  <section class="petak p4">
+    <header class="p-atas"><h2>WAKTU SHOLAT</h2><span class="src">kemenag, jakarta</span></header>
+    <div class="solat-ikut">
+      <div>
+        <div class="redup kecil">menuju</div>
+        <div class="solat-nama" id="h-next">--</div>
+      </div>
+      <div class="solat-hitung mono" id="h-count">--:--:--</div>
+    </div>
+    <div class="tl" id="h-tl"></div>
+    <div class="solat-grid mono" id="h-grid"></div>
+  </section>
+
+  <section class="petak p7">
+    <header class="p-atas"><h2>PASAR PREDIKSI DUNIA</h2><span class="src">polymarket, volume 24 jam</span></header>
+    <div class="pred-head redup kecil">peluang menurut harga pasar uang nyata, bukan opini</div>
+    <div id="p-list"></div>
+  </section>
+
+  <section class="petak p5">
+    <header class="p-atas"><h2>SUMBER DATA</h2><span class="src">asal dan kesehatan</span></header>
+    <ul class="sumber" id="u-list"></ul>
+    <div class="garis"></div>
+    <div class="potret-baris">
+      <div class="redup kecil">potret dibuat <span class="mono" id="u-dibuat">--</span></div>
+      <div class="jalur"><div class="jalur-isi" id="u-prog"></div></div>
+      <div class="redup kecil">berikutnya <span class="mono" id="u-ikut">--</span></div>
     </div>
   </section>
 
-  <!-- TRICO STANDBY -->
-  <section class="tile tile-trico span-12" id="tile-trico">
-    <div class="trico-idle">
-      <span class="hairline" aria-hidden="true"></span>
-      <span class="trico-text">trico standby — telinga lokal dipasang di <b>Fase 2</b>. nanti: ucapkan <b>“hey trico”</b>, ia menjawab singkat di sini, tanpa membuka tab apa pun.</span>
+  <section class="petak p12">
+    <header class="p-atas"><h2>HARI INI DALAM SEJARAH</h2><span class="src">wikipedia</span></header>
+    <div class="sejarah3" id="j-list"></div>
+  </section>
+
+  <section class="petak p12 petak-trico">
+    <div class="trico-baris">
+      <span class="napas" aria-hidden="true"></span>
+      <span class="trico-teks">trico menunggu dipanggil. telinga lokal dan jawaban singkat dipasang pada fase dua. ucapkan <b>hey trico</b> nanti di sini.</span>
     </div>
   </section>
 
 </main>
 
-<!-- MODE LAYAR SEMPIT: teks saja (sesuai filosofi: mobile = informasi by teks) -->
-<div class="mobile-only">
-  <pre id="mobile-ringkas">memuat ringkasan…</pre>
+<div class="layar-sempit">
+  <pre id="ringkas">memuat ringkasan</pre>
 </div>
 
-<footer class="footer">
-  <span>data: BMKG · USGS · Nager.Date · Wikipedia — sumber terbuka, atribusi dipertahankan</span>
-  <span class="mono" id="foot-gen">—</span>
+<footer class="kaki">
+  <span>sumber terbuka: BMKG, USGS, Google Berita, Polymarket, Open-Meteo, Aladhan, Nager, Wikipedia. atribusi dipertahankan.</span>
+  <span class="mono" id="f-gen">--</span>
 </footer>
 
 <script src="/app.js"></script>

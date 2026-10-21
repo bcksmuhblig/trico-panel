@@ -11,7 +11,7 @@ directory = "../web"
 # Snapshot World-State (bibit Mesin Waktu)
 # v0 memakai KV: gratis tanpa kartu + TTL otomatis untuk arsip.
 # (R2 dicoba 2026-10-22 -> akun belum mengaktifkan R2 [code 10042]; bisa diaktifkan
-#  manual di dashboard nanti bila arsip jangka panjang dibutuhkan — lihat infra/CHANGELOG)
+#  manual di dashboard nanti bila arsip jangka panjang dibutuhkan · lihat infra/CHANGELOG)
 [[kv_namespaces]]
 binding = "STATE"
 id = "36f422c019e5420c968c38780dddd745"
@@ -21,7 +21,7 @@ id = "36f422c019e5420c968c38780dddd745"
 crons = ["*/15 * * * *"]
 
 # Secrets diset via Dashboard (Variables and Secrets) atau `wrangler secret put`:
-#   ADMIN_KEY            — penjaga POST /api/snapshot/now
-#   GROQ_API_KEY         — (Fase 2) STT + LLM
-#   TIDB_*               — (Fase 1) koneksi database
-#   GOOGLE_GATEWAY_*     — (Fase 1) Apps Script gateway
+#   ADMIN_KEY            · penjaga POST /api/snapshot/now
+#   GROQ_API_KEY         · (Fase 2) STT + LLM
+#   TIDB_*               · (Fase 1) koneksi database
+#   GOOGLE_GATEWAY_*     · (Fase 1) Apps Script gateway
